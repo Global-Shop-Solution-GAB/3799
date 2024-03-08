@@ -1,0 +1,728 @@
+Program.Sub.ScreenSU.Start
+gui.FrmCRM..create
+gui.FrmCRM..caption("Customer: Number - Name")
+gui.FrmCRM..size(12960,9870)
+gui.FrmCRM..minx(0)
+gui.FrmCRM..miny(0)
+gui.FrmCRM..position(0,0)
+gui.FrmCRM..event(unload,frmcrm_unload)
+gui.FrmCRM..alwaysontop(False)
+gui.FrmCRM..fontname("Arial")
+gui.FrmCRM..fontsize(8)
+gui.FrmCRM..forecolor(0)
+gui.FrmCRM..fontstyle(,,,,)
+gui.FrmCRM..BackColor(-2147483633)
+gui.FrmCRM..controlbox(True)
+gui.FrmCRM..maxbutton(False)
+gui.FrmCRM..minbutton(True)
+gui.FrmCRM..mousepointer(0)
+gui.FrmCRM..moveable(True)
+gui.FrmCRM..sizeable(False)
+gui.FrmCRM..ShowInTaskBar(True)
+gui.FrmCRM..titlebar(True)
+gui.FrmCRM.frameCust.create(frame)
+gui.FrmCRM.frameCust.caption("")
+gui.FrmCRM.frameCust.size(3270,1260)
+gui.FrmCRM.frameCust.position(200,0)
+gui.FrmCRM.frameCust.visible(True)
+gui.FrmCRM.frameCust.borderstyle(1)
+gui.FrmCRM.frameCust.fontname("Arial")
+gui.FrmCRM.frameCust.fontsize(8)
+gui.FrmCRM.frameSO.create(frame)
+gui.FrmCRM.frameSO.caption("Open Orders")
+gui.FrmCRM.frameSO.size(12405,1800)
+gui.FrmCRM.frameSO.position(200,1300)
+gui.FrmCRM.frameSO.visible(True)
+gui.FrmCRM.frameSO.fontname("Arial")
+gui.FrmCRM.frameSO.fontsize(8)
+gui.FrmCRM.frameShip.create(frame)
+gui.FrmCRM.frameShip.caption("Open Shipments")
+gui.FrmCRM.frameShip.size(12405,1800)
+gui.FrmCRM.frameShip.position(200,3300)
+gui.FrmCRM.frameShip.visible(True)
+gui.FrmCRM.frameShip.fontname("Arial")
+gui.FrmCRM.frameShip.fontsize(8)
+gui.FrmCRM.frameSOHist.create(frame)
+gui.FrmCRM.frameSOHist.caption("Sales History")
+gui.FrmCRM.frameSOHist.size(12390,1800)
+gui.FrmCRM.frameSOHist.position(200,5300)
+gui.FrmCRM.frameSOHist.visible(True)
+gui.FrmCRM.frameSOHist.fontname("Arial")
+gui.FrmCRM.frameSOHist.fontsize(8)
+gui.FrmCRM.frameWO.create(frame)
+gui.FrmCRM.frameWO.caption("Work Orders")
+gui.FrmCRM.frameWO.size(12390,1800)
+gui.FrmCRM.frameWO.position(200,7270)
+gui.FrmCRM.frameWO.visible(True)
+gui.FrmCRM.frameWO.fontname("Arial")
+gui.FrmCRM.frameWO.fontsize(8)
+gui.FrmCRM.lblCustName.create(label,"Name:",True,540,255,1,100,300,True,0,Arial,8,-2147483633,0)
+gui.FrmCRM.lblCustName.parent("framecust")
+gui.FrmCRM.lblCustName.defaultvalue("")
+gui.FrmCRM.lblCustName.controlgroup(0)
+gui.FrmCRM.txtCustName.create(textbox,"",True,2025,270,0,595,270,False,0,Arial,8,15724527,1)
+gui.FrmCRM.txtCustName.parent("framecust")
+gui.FrmCRM.txtCustName.defaultvalue("")
+gui.FrmCRM.txtCustName.controlgroup(0)
+gui.FrmCRM.lblCustPO.create(label,"Customer PO:",True,1935,255,1,100,750,True,0,Arial,8,-2147483633,0)
+gui.FrmCRM.lblCustPO.parent("framecust")
+gui.FrmCRM.lblCustPO.defaultvalue("")
+gui.FrmCRM.lblCustPO.controlgroup(0)
+gui.FrmCRM.txtCustPO.create(textbox,"",True,1470,270,0,1155,700,False,0,Arial,8,15724527,1)
+gui.FrmCRM.txtCustPO.parent("framecust")
+gui.FrmCRM.txtCustPO.defaultvalue("")
+gui.FrmCRM.txtCustPO.controlgroup(0)
+gui.FrmCRM.cmdCustBrw.create(button)
+gui.FrmCRM.cmdCustBrw.caption("^")
+gui.FrmCRM.cmdCustBrw.visible(True)
+gui.FrmCRM.cmdCustBrw.size(360,330)
+gui.FrmCRM.cmdCustBrw.zorder(0)
+gui.FrmCRM.cmdCustBrw.position(2700,250)
+gui.FrmCRM.cmdCustBrw.enabled(True)
+gui.FrmCRM.cmdCustBrw.parent("framecust")
+gui.FrmCRM.cmdCustBrw.fontname("Arial")
+gui.FrmCRM.cmdCustBrw.fontsize(8)
+gui.FrmCRM.cmdCustBrw.event(click,cmdcustbrw_click)
+gui.FrmCRM.cmdCustBrw.defaultvalue("")
+gui.FrmCRM.cmdCustBrw.controlgroup(0)
+gui.FrmCRM.cmdCustPOBrws.create(button)
+gui.FrmCRM.cmdCustPOBrws.caption("^")
+gui.FrmCRM.cmdCustPOBrws.visible(True)
+gui.FrmCRM.cmdCustPOBrws.size(360,300)
+gui.FrmCRM.cmdCustPOBrws.zorder(0)
+gui.FrmCRM.cmdCustPOBrws.position(2700,700)
+gui.FrmCRM.cmdCustPOBrws.enabled(True)
+gui.FrmCRM.cmdCustPOBrws.parent("framecust")
+gui.FrmCRM.cmdCustPOBrws.fontname("Arial")
+gui.FrmCRM.cmdCustPOBrws.fontsize(8)
+gui.FrmCRM.cmdCustPOBrws.event(click,cmdcustpobrws_click)
+gui.FrmCRM.cmdCustPOBrws.defaultvalue("")
+gui.FrmCRM.cmdCustPOBrws.controlgroup(0)
+gui.FrmCRM.gsfgWO.create(gsflexgrid)
+gui.FrmCRM.gsfgWO.FixedRows(0)
+gui.FrmCRM.gsfgWO.FixedCols(0)
+gui.FrmCRM.gsfgWO.visible(True)
+gui.FrmCRM.gsfgWO.size(12195,1500)
+gui.FrmCRM.gsfgWO.zorder(0)
+gui.FrmCRM.gsfgWO.position(100,220)
+gui.FrmCRM.gsfgWO.enabled(True)
+gui.FrmCRM.gsfgWO.parent("framewo")
+gui.FrmCRM.gsfgWO.event(mouseup,gsfgwo_mouseup)
+gui.FrmCRM.gsfgSOHist.create(gsflexgrid)
+gui.FrmCRM.gsfgSOHist.FixedRows(0)
+gui.FrmCRM.gsfgSOHist.FixedCols(0)
+gui.FrmCRM.gsfgSOHist.visible(True)
+gui.FrmCRM.gsfgSOHist.size(12195,1500)
+gui.FrmCRM.gsfgSOHist.zorder(0)
+gui.FrmCRM.gsfgSOHist.position(100,220)
+gui.FrmCRM.gsfgSOHist.enabled(True)
+gui.FrmCRM.gsfgSOHist.parent("framesohist")
+gui.FrmCRM.gsfgSOHist.event(mouseup,gsfgsohist_mouseup)
+gui.FrmCRM.gsfgShip.create(gsflexgrid)
+gui.FrmCRM.gsfgShip.FixedRows(0)
+gui.FrmCRM.gsfgShip.FixedCols(0)
+gui.FrmCRM.gsfgShip.visible(True)
+gui.FrmCRM.gsfgShip.size(12195,1500)
+gui.FrmCRM.gsfgShip.zorder(0)
+gui.FrmCRM.gsfgShip.position(100,220)
+gui.FrmCRM.gsfgShip.enabled(True)
+gui.FrmCRM.gsfgShip.parent("frameship")
+gui.FrmCRM.gsfgShip.event(mouseup,gsfgship_mouseup)
+gui.FrmCRM.gsfgSO.create(gsflexgrid)
+gui.FrmCRM.gsfgSO.FixedRows(0)
+gui.FrmCRM.gsfgSO.FixedCols(0)
+gui.FrmCRM.gsfgSO.visible(True)
+gui.FrmCRM.gsfgSO.size(12195,1500)
+gui.FrmCRM.gsfgSO.zorder(0)
+gui.FrmCRM.gsfgSO.position(100,220)
+gui.FrmCRM.gsfgSO.enabled(True)
+gui.FrmCRM.gsfgSO.parent("frameso")
+gui.FrmCRM.gsfgSO.event(mouseup,gsfgso_mouseup)
+gui.FrmCRM.cmdCustBrw.tabstop(True)
+gui.FrmCRM.cmdCustBrw.tabindex(1)
+gui.FrmCRM.txtCustPO.tabstop(True)
+gui.FrmCRM.txtCustPO.tabindex(2)
+gui.FrmCRM.cmdCustPOBrws.tabstop(True)
+gui.FrmCRM.cmdCustPOBrws.tabindex(3)
+gui.FrmCRM.txtCustName.tabstop(True)
+gui.FrmCRM.txtCustName.tabindex(4)
+
+
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.sCustomer.Declare(String)
+Variable.Global.sCustPO.Declare(String)
+Variable.UDT.uShip.Define("ORDER_NO",String,ORDER_NO)
+Variable.UDT.uShip.Define("ORDER_SUFFIX",String,ORDER_SUFFIX)
+Variable.UDT.uShip.Define("ORDER_REC",String,ORDER_REC)
+Variable.UDT.uShip.Define("ORIG_SHPMT_SEQ",String,ORIG_SHPMT_SEQ)
+Variable.UDT.uShip.Define("PART",String,PART)
+Variable.UDT.uShip.Define("LOCATION",String,LOCATION)
+Variable.UDT.uShip.Define("ORDER_DESC",String,ORDER_DESC)
+Variable.UDT.uShip.Define("DATE_SHIP",String,DATE_SHIP)
+Variable.UDT.uShip.Define("QTY_SHIPPED",String,QTY_SHIPPED)
+Variable.UDT.uShip.Define("TRACKING_NO",String,TRACKING_NO)
+Variable.UDT.uShip.Define("CARRIER_CD",String,CARRIER_CD)
+Variable.uGlobal.uShip.Declare("uShip")
+Variable.UDT.uSO.Define("ORDER_NO",String,ORDER_NO)
+Variable.UDT.uSO.Define("RECORD_NO",String,RECORD_NO)
+Variable.UDT.uSO.Define("PART",String,PART)
+Variable.UDT.uSO.Define("LOCATION",String,LOCATION)
+Variable.UDT.uSO.Define("DESCRIPTION",String,DESCRIPTION)
+Variable.UDT.uSO.Define("DATE_ITEM_PROM",String,DATE_ITEM_PROM)
+Variable.UDT.uSO.Define("QTY_ORDERED",String,QTY_ORDERED)
+Variable.UDT.uSO.Define("QTY_SHIPPED",String,QTY_SHIPPED)
+Variable.UDT.uSO.Define("QTY_BO",String,QTY_BO)
+Variable.uGlobal.uSO.Declare("uSO")
+Variable.UDT.uSOHist.Define("INVOICE",String,INVOICE)
+Variable.UDT.uSOHist.Define("ORDER_NO",String,ORDER_NO)
+Variable.UDT.uSOHist.Define("ORDER_SUFFIX",String,ORDER_SUFFIX)
+Variable.UDT.uSOHist.Define("ORDER_LINE",String,ORDER_LINE)
+Variable.UDT.uSOHist.Define("PART",String,PART)
+Variable.UDT.uSOHist.Define("LOCATION",String,LOCATION)
+Variable.UDT.uSOHist.Define("DESCRIPTION",String,DESCRIPTION)
+Variable.UDT.uSOHist.Define("DATE_SHIPPED",String,DATE_SHIPPED)
+Variable.UDT.uSOHist.Define("QTY_SHIPPED",String,QTY_SHIPPED)
+Variable.UDT.uSOHist.Define("TRACKING_NO",String,TRACKING_NO)
+Variable.UDT.uSOHist.Define("CARRIER_CD",String,CARRIER_CD)
+Variable.uGlobal.uSOHist.Declare("uSOHist")
+Variable.UDT.uWO.Define("STATUS",String,STATUS)
+Variable.UDT.uWO.Define("JOB",String,JOB)
+Variable.UDT.uWO.Define("SUFFIX",String,SUFFIX)
+Variable.UDT.uWO.Define("PART",String,PART)
+Variable.UDT.uWO.Define("LOCATION",String,LOCATION)
+Variable.UDT.uWO.Define("DESCRIPTION",String,DESCRIPTION)
+Variable.UDT.uWO.Define("DATE_DUE",String,DATE_DUE)
+Variable.UDT.uWO.Define("QTY_OPEN",String,QTY_OPEN)
+Variable.uGlobal.uWO.Declare("uWO")
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Give user the same ability as AR0026
+'Customer: Fullerton
+'Programmer: AGV
+'Hooks: Script1-42918, Script2-42919, Script3-42920, Script4-42921, Script5-42922
+
+V.Local.sIcon.Declare(String)
+V.Local.sFormCaption.Declare(String)
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+
+F.Intrinsic.Control.CallSub(Subbuildstylesship)
+F.Intrinsic.Control.CallSub(Subbuildstylesso)
+F.Intrinsic.Control.CallSub(Subbuildstylessohist)
+F.Intrinsic.Control.CallSub(Subbuildstyleswo)
+
+F.Intrinsic.String.Build("{0}\Icons\gss.ico",V.Caller.PluginsDir,V.Local.sIcon)
+F.Intrinsic.UI.SetApplicationIcon("FrmCRM",V.Local.sIcon)
+
+'If coming from CRM populate with the customer name already
+F.Intrinsic.Control.If(V.Caller.Hook,=,42900)
+	V.Passed.CRM-cmdGAB-3.Set("Customer Orders")
+F.Intrinsic.Control.ElseIf(V.Caller.Hook,=,42921)
+	V.Global.sCustomer.Set(V.Passed.DATA-CRM-CompID)
+	F.Intrinsic.Control.If(V.Global.sCustomer,<>,"")
+		Gui.FrmCRM.txtCustName.Text(V.Passed.DATA-CRM-CompName)
+		F.Intrinsic.String.Build("{0} - {1}",V.Passed.DATA-CRM-CompID,V.Passed.DATA-CRM-CompName,V.Local.sFormCaption)
+		Gui.FrmCRM..Caption(V.Local.sFormCaption)
+		Gui.FrmCRM..Show
+	F.Intrinsic.Control.Else
+		F.Intrinsic.UI.Msgbox("Please Select a Customer First","Customer Validation")
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	Gui.FrmCRM..Show
+F.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.subBuildStylesSO.Start
+'BuildStyles for Open Order
+
+Gui.FrmCRM.gsfgSO.Cols(9)
+Gui.FrmCRM.gsfgSO.Rows(2)
+Gui.FrmCRM.gsfgSO.FixedRows(1)
+
+'Titles
+Gui.FrmCRM.gsfgSO.TextMatrix(0,0,"Order")
+Gui.FrmCRM.gsfgSO.TextMatrix(1,0,"Line")
+Gui.FrmCRM.gsfgSO.TextMatrix(2,0,"Part")
+Gui.FrmCRM.gsfgSO.TextMatrix(3,0,"Loc")
+Gui.FrmCRM.gsfgSO.TextMatrix(4,0,"Description")
+Gui.FrmCRM.gsfgSO.TextMatrix(5,0,"Due Date")
+Gui.FrmCRM.gsfgSO.TextMatrix(6,0,"Qty Open")
+Gui.FrmCRM.gsfgSO.TextMatrix(7,0,"Qty Shipped")
+Gui.FrmCRM.gsfgSO.TextMatrix(8,0,"Qty B/O")
+
+'Column Widths
+Gui.FrmCRM.gsfgSO.ColWidth(0,800)
+Gui.FrmCRM.gsfgSO.ColWidth(1,500)
+Gui.FrmCRM.gsfgSO.ColWidth(2,1800)
+Gui.FrmCRM.gsfgSO.ColWidth(3,400)
+Gui.FrmCRM.gsfgSO.ColWidth(4,3000)
+Gui.FrmCRM.gsfgSO.ColWidth(5,1000)
+Gui.FrmCRM.gsfgSO.ColWidth(6,1000)
+Gui.FrmCRM.gsfgSO.ColWidth(7,1000)
+Gui.FrmCRM.gsfgSO.ColWidth(8,1000)
+
+'Styles for Header
+Gui.FrmCRM.gsfgSO.BuildStyle(0,0,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(0,1,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(0,2,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(0,3,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(0,4,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(0,5,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(0,6,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(0,7,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(0,8,"Format","Alignment",4)
+
+'Styles for Data
+Gui.FrmCRM.gsfgSO.BuildStyle(1,0,"Type","Locked",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,0,"FontStyle","Underline",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,0,"Color","Fore",V.Color.LtBlue)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,0,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,1,"Type","Locked",True)
+'Gui.FrmCRM.gsfgSO.BuildStyle(1,1,"FontStyle","Underline",True)
+'Gui.FrmCRM.gsfgSO.BuildStyle(1,1,"Color","Fore",V.Color.LtBlue)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,1,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,2,"Type","Locked",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,2,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,3,"Type","Locked",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,3,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,4,"Type","Locked",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,4,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,5,"Type","Locked",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,5,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,6,"Type","Locked",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,6,"Format","Mask","#########0.0000")
+Gui.FrmCRM.gsfgSO.BuildStyle(1,7,"Type","Locked",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,7,"Format","Mask","#########0.0000")
+Gui.FrmCRM.gsfgSO.BuildStyle(1,8,"Type","Locked",True)
+Gui.FrmCRM.gsfgSO.BuildStyle(1,8,"Format","Mask","#########0.0000")
+
+'ApplyStyles
+Gui.FrmCRM.gsfgSO.ApplyStyle(0,0)
+
+Program.Sub.subBuildStylesSO.End
+
+Program.Sub.subBuildStylesWO.Start
+'BuildStyles for Work Orders
+
+Gui.FrmCRM.gsfgWO.Cols(8)
+Gui.FrmCRM.gsfgWO.Rows(2)
+Gui.FrmCRM.gsfgWO.FixedRows(1)
+
+'Titles
+Gui.FrmCRM.gsfgWO.TextMatrix(0,0,"Status")
+Gui.FrmCRM.gsfgWO.TextMatrix(1,0,"Job")
+Gui.FrmCRM.gsfgWO.TextMatrix(2,0,"Suffix")
+Gui.FrmCRM.gsfgWO.TextMatrix(3,0,"Part")
+Gui.FrmCRM.gsfgWO.TextMatrix(4,0,"Loc")
+Gui.FrmCRM.gsfgWO.TextMatrix(5,0,"Description")
+Gui.FrmCRM.gsfgWO.TextMatrix(6,0,"Due Date")
+Gui.FrmCRM.gsfgWO.TextMatrix(7,0,"Qty Open")
+
+'Column Widths
+Gui.FrmCRM.gsfgWO.ColWidth(0,600)
+Gui.FrmCRM.gsfgWO.ColWidth(1,800)
+Gui.FrmCRM.gsfgWO.ColWidth(2,600)
+Gui.FrmCRM.gsfgWO.ColWidth(3,1800)
+Gui.FrmCRM.gsfgWO.ColWidth(4,400)
+Gui.FrmCRM.gsfgWO.ColWidth(5,3000)
+Gui.FrmCRM.gsfgWO.ColWidth(6,1000)
+Gui.FrmCRM.gsfgWO.ColWidth(7,1000)
+
+'Styles for Header
+Gui.FrmCRM.gsfgWO.BuildStyle(0,0,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(0,1,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(0,2,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(0,3,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(0,4,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(0,5,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(0,6,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(0,7,"Format","Alignment",4)
+
+'Styles for Data
+Gui.FrmCRM.gsfgWO.BuildStyle(1,0,"Type","Locked",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,0,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,1,"Type","Locked",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,1,"FontStyle","Underline",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,1,"Color","Fore",V.Color.LtBlue)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,1,"Format","Alignment",2)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,2,"Type","Locked",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,2,"FontStyle","Underline",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,2,"Color","Fore",V.Color.LtBlue)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,2,"Format","Alignment",2)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,3,"Type","Locked",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,3,"Format","Alignment",2)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,4,"Type","Locked",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,4,"Format","Alignment",2)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,5,"Type","Locked",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,5,"Format","Alignment",2)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,6,"Type","Locked",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,6,"Format","Alignment",4)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,7,"Type","Locked",True)
+Gui.FrmCRM.gsfgWO.BuildStyle(1,7,"Format","Mask","#########0.0000")
+
+'ApplyStyles
+Gui.FrmCRM.gsfgWO.ApplyStyle(0,0)
+
+
+Program.Sub.subBuildStylesWO.End
+
+Program.Sub.subBuildStylesShip.Start
+'BuildStyles for Shipments
+
+Gui.FrmCRM.gsfgShip.Cols(11)
+Gui.FrmCRM.gsfgShip.Rows(2)
+Gui.FrmCRM.gsfgShip.FixedRows(1)
+
+'Titles
+Gui.FrmCRM.gsfgShip.TextMatrix(0,0,"Order")
+Gui.FrmCRM.gsfgShip.TextMatrix(1,0,"Suffix")
+Gui.FrmCRM.gsfgShip.TextMatrix(2,0,"Line")
+Gui.FrmCRM.gsfgShip.TextMatrix(3,0,"Seq")
+Gui.FrmCRM.gsfgShip.TextMatrix(4,0,"Part")
+Gui.FrmCRM.gsfgShip.TextMatrix(5,0,"Loc")
+Gui.FrmCRM.gsfgShip.TextMatrix(6,0,"Description")
+Gui.FrmCRM.gsfgShip.TextMatrix(7,0,"Ship Date")
+Gui.FrmCRM.gsfgShip.TextMatrix(8,0,"Qty Shipped")
+Gui.FrmCRM.gsfgShip.TextMatrix(9,0,"Tracking No")
+Gui.FrmCRM.gsfgShip.TextMatrix(10,0,"Carrier")
+
+'Column Widths
+Gui.FrmCRM.gsfgShip.ColWidth(0,800)
+Gui.FrmCRM.gsfgShip.ColWidth(1,600)
+Gui.FrmCRM.gsfgShip.ColWidth(2,500)
+Gui.FrmCRM.gsfgShip.ColWidth(3,600)
+Gui.FrmCRM.gsfgShip.ColWidth(4,1800)
+Gui.FrmCRM.gsfgShip.ColWidth(5,400)
+Gui.FrmCRM.gsfgShip.ColWidth(6,3000)
+Gui.FrmCRM.gsfgShip.ColWidth(7,1000)
+Gui.FrmCRM.gsfgShip.ColWidth(8,1000)
+Gui.FrmCRM.gsfgShip.ColWidth(9,1300)
+Gui.FrmCRM.gsfgShip.ColWidth(10,800)
+
+'Styles for Header
+Gui.FrmCRM.gsfgShip.BuildStyle(0,0,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,1,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,2,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,3,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,4,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,5,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,6,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,7,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,8,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,9,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(0,10,"Format","Alignment",4)
+
+'Styles for Data
+Gui.FrmCRM.gsfgShip.BuildStyle(1,0,"Type","Locked",True)
+'Gui.FrmCRM.gsfgShip.BuildStyle(1,0,"FontStyle","Underline",True)
+'Gui.FrmCRM.gsfgShip.BuildStyle(1,0,"Color","Fore",V.Color.LtBlue)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,0,"Format","Alignment",2)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,1,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,1,"Format","Alignment",2)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,2,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,2,"Format","Alignment",2)
+'Gui.FrmCRM.gsfgShip.BuildStyle(1,2,"FontStyle","Underline",True)
+'Gui.FrmCRM.gsfgShip.BuildStyle(1,2,"Color","Fore",V.Color.LtBlue)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,3,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,3,"Format","Alignment",2)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,4,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,4,"Format","Alignment",2)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,5,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,5,"Format","Alignment",2)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,6,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,6,"Format","Alignment",2)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,7,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,7,"Format","Alignment",4)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,8,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,8,"Format","Mask","#########0.0000")
+Gui.FrmCRM.gsfgShip.BuildStyle(1,9,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,9,"Format","Alignment",2)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,10,"Type","Locked",True)
+Gui.FrmCRM.gsfgShip.BuildStyle(1,10,"Format","Alignment",2)
+
+'ApplyStyles
+Gui.FrmCRM.gsfgShip.ApplyStyle(0,0)
+
+Program.Sub.subBuildStylesShip.End
+
+Program.Sub.subBuildStylesSOHist.Start
+'BuildStyles for Sales History
+
+Gui.FrmCRM.gsfgSOHist.Cols(11)
+Gui.FrmCRM.gsfgSOHist.Rows(2)
+Gui.FrmCRM.gsfgSOHist.FixedRows(1)
+
+'Titles
+Gui.FrmCRM.gsfgSOHist.TextMatrix(0,0,"Invoice")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(1,0,"Order")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(2,0,"Suffix")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(3,0,"Line")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(4,0,"Part")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(5,0,"Loc")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(6,0,"Description")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(7,0,"Ship Date")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(8,0,"Qty Shipped")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(9,0,"Tracking No")
+Gui.FrmCRM.gsfgSOHist.TextMatrix(10,0,"Carrier")
+
+'Column Widths
+Gui.FrmCRM.gsfgSOHist.ColWidth(0,800)
+Gui.FrmCRM.gsfgSOHist.ColWidth(1,800)
+Gui.FrmCRM.gsfgSOHist.ColWidth(2,600)
+Gui.FrmCRM.gsfgSOHist.ColWidth(3,500)
+Gui.FrmCRM.gsfgSOHist.ColWidth(4,1800)
+Gui.FrmCRM.gsfgSOHist.ColWidth(5,400)
+Gui.FrmCRM.gsfgSOHist.ColWidth(6,3000)
+Gui.FrmCRM.gsfgSOHist.ColWidth(7,1000)
+Gui.FrmCRM.gsfgSOHist.ColWidth(8,1000)
+Gui.FrmCRM.gsfgSOHist.ColWidth(9,1200)
+Gui.FrmCRM.gsfgSOHist.ColWidth(10,800)
+
+'Styles for Header
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,0,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,1,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,2,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,3,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,4,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,5,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,6,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,7,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,8,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,9,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(0,10,"Format","Alignment",4)
+
+'Styles for Data
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,0,"Type","Locked",True)
+'Gui.FrmCRM.gsfgSOHist.BuildStyle(1,0,"FontStyle","Underline",True)
+'Gui.FrmCRM.gsfgSOHist.BuildStyle(1,0,"Color","Fore",V.Color.LtBlue)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,0,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,1,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,1,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,2,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,2,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,3,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,3,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,4,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,4,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,5,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,5,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,6,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,6,"Format","Alignment",2)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,7,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,7,"Format","Alignment",4)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,8,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,8,"Format","Mask","#########0.0000")
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,9,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,10,"Type","Locked",True)
+Gui.FrmCRM.gsfgSOHist.BuildStyle(1,10,"Format","Alignment",2)
+
+'ApplyStyles
+Gui.FrmCRM.gsfgSOHist.ApplyStyle(0,0)
+
+Program.Sub.subBuildStylesSOHist.End
+
+program.sub.cmdcustbrw_click.start
+'Create Customer Browser
+
+V.Local.sRet.Declare(String)
+V.Local.sFormCaption.Declare(String)
+
+F.Intrinsic.UI.Browser(205,"",V.Local.sRet)
+
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	F.Intrinsic.String.Build("{0} - {1}",V.Local.sRet(0),V.Local.sRet(1),V.Local.sFormCaption)
+	Gui.FrmCRM..Caption(V.Local.sFormCaption)
+	Gui.FrmCRM.txtCustName.Text(V.Local.sRet(1))
+	V.Global.sCustomer.Set(V.Local.sRet(0))
+F.Intrinsic.Control.EndIf
+
+program.sub.cmdcustbrw_click.end
+
+program.sub.cmdcustpobrws_click.start
+'Create Customer PO Browser
+
+V.Local.sSQL.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.sWidths.Declare(String)
+
+V.Local.sTitles.Set("Customer PO*!*Order No*!*Due Date")
+V.Local.sWidths.Set("1000*!*1000*!*1000")
+
+F.Intrinsic.String.Build("SELECT CUSTOMER_PO, ORDER_NO, DATE_DUE FROM V_ORDER_HEADER WHERE CUSTOMER = '{0}' UNION SELECT CUSTOMER_PO, ORDER_NO, DATE_ORDER_DUE FROM V_ORDER_HIST_HEAD WHERE CUSTOMER = '{0}' ORDER BY CUSTOMER_PO",V.Global.sCustomer,V.Local.sSQL)
+F.Intrinsic.UI.Browser("Customer PO","con",V.Local.sSQL,V.Local.sTitles,V.Local.sWidths,V.Local.sRet)
+F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	Gui.FrmCRM.txtCustPO.Text(V.Local.sRet(0).Trim)
+	V.Global.sCustPO.Set(V.Local.sRet(0))
+
+	Gui.FrmCRM.gsfgSO.Visible(False)
+	Gui.FrmCRM.gsfgShip.Visible(False)
+	Gui.FrmCRM.gsfgSOHist.Visible(False)
+	Gui.FrmCRM.gsfgWO.Visible(False)
+
+	F.Intrinsic.Control.CallSub(Subloadgsfgso)
+	F.Intrinsic.Control.CallSub(Subloadgsfgship)
+	F.Intrinsic.Control.CallSub(Subloadgsfgsohist)
+	F.Intrinsic.Control.CallSub(Subloadgsfgwo)
+	
+	Gui.FrmCRM.gsfgSO.Visible(True)
+	Gui.FrmCRM.gsfgShip.Visible(True)
+	Gui.FrmCRM.gsfgSOHist.Visible(True)
+	Gui.FrmCRM.gsfgWO.Visible(True)
+F.Intrinsic.Control.EndIf
+
+program.sub.cmdcustpobrws_click.end
+
+program.sub.frmcrm_unload.start
+
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+program.sub.frmcrm_unload.end
+
+Program.Sub.subLoadGSFGShip.Start
+'Load GSFG Open Shipments
+
+V.Local.sSQL.Declare(String)
+
+V.uGlobal.uShip.Redim(-1,-1)
+
+F.Intrinsic.String.Build("SELECT VSH.ORDER_NO,IF(VSH.ORDER_SUFFIX = '0000','',VSH.ORDER_SUFFIX) AS ORDER_SUFFIX,LEFT(VSL.ORDER_REC,3) AS ORDER_REC,IF(VSH.ORIG_SHPMT_SEQ = '0000','',VSH.ORIG_SHPMT_SEQ) AS ORIG_SHPMT_SEQ,VSL.PART,VSL.LOCATION,VSL.ORDER_DESC,VSL.DATE_SHIP,VSL.QTY_SHIPPED,VSH.TRACKING_NO,VSH.CARRIER_CD FROM V_SHIPMENT_HEADER VSH JOIN V_SHIPMENT_LINES VSL ON VSH.ORDER_NO = VSL.ORDER_NO WHERE VSH.CUSTOMER = '{0}' AND VSH.CUSTOMER_PO = '{1}' ORDER BY ORDER_NO;",V.Global.sCustomer,V.Global.sCustPO,V.Local.sSQL)
+
+F.ODBC.Connection!con.OpenRecordsetRO("rstShip",V.Local.sSQL)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("con","rstShip","V.uGlobal.uShip",False,100000)
+	Gui.FrmCRM.gsfgShip.LoadFromUDT("V.uGlobal.uShip","ORDER_NO::0*!*ORDER_SUFFIX::1*!*ORDER_REC::2*!*ORIG_SHPMT_SEQ::3*!*PART::4*!*LOCATION::5*!*ORDER_DESC::6*!*DATE_SHIP::7*!*QTY_SHIPPED::8*!*TRACKING_NO::9*!*CARRIER_CD::10",1)
+F.ODBC.con!rstShip.Close
+
+Program.Sub.subLoadGSFGShip.End
+
+program.sub.txtcustpo_change.start
+'Refresh Grid if the Cust PO value is changed
+
+'F.Intrinsic.UI.SleepMS(9)
+'V.Global.sCustPO.Set(V.Screen.FrmCRM!txtCustPO.Text)
+'F.Intrinsic.Control.CallSub(Subloadgsfgship)
+
+program.sub.txtcustpo_change.end
+
+Program.Sub.subLoadGSFGSO.Start
+'Load GSFG Open Orders
+
+V.Local.sSQL.Declare(String)
+
+V.uGlobal.uSO.Redim(-1,-1)
+
+F.Intrinsic.String.Build("SELECT VOL.ORDER_NO,LEFT(VOL.RECORD_NO,3) AS RECORD_NO,VOL.PART,VOL.LOCATION,VOL.DESCRIPTION,VOL.DATE_ITEM_PROM,VOL.QTY_ORDERED,VOL.QTY_SHIPPED,VOL.QTY_BO FROM V_ORDER_LINES VOL JOIN V_ORDER_HEADER VOH ON VOH.ORDER_NO = VOL.ORDER_NO WHERE VOH.CUSTOMER = '{0}' AND CUSTOMER_PO = '{1}' ORDER BY ORDER_NO,RECORD_NO;",V.Global.sCustomer,V.Global.sCustPO,V.Local.sSQL)
+
+F.ODBC.Connection!con.OpenRecordsetRO("rstSO",V.Local.sSQL)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("con","rstSO","V.uGlobal.uSO",False,100000)
+	Gui.FrmCRM.gsfgSO.LoadFromUDT("V.uGlobal.uSO","ORDER_NO::0*!*RECORD_NO::1*!*PART::2*!*LOCATION::3*!*DESCRIPTION::4*!*DATE_ITEM_PROM::5*!*QTY_ORDERED::6*!*QTY_SHIPPED::7*!*QTY_BO::8",1)
+F.ODBC.con!rstSO.Close
+
+Program.Sub.subLoadGSFGSO.End
+
+Program.Sub.subLoadGSFGWO.Start
+'Load GSFG Work Orders
+
+V.Local.sSQL.Declare(String)
+
+V.uGlobal.uWO.Redim(-1,-1)
+
+F.Intrinsic.String.Build("SELECT IF(DATE_CLOSED = '1900-1-1','O','C') AS STATUS,JOB,SUFFIX,PART,LOCATION,DESCRIPTION,DATE_DUE,QTY_ORDER-QTY_COMPLETED AS QTY_OPEN FROM V_JOB_HEADER WHERE CUSTOMER = '{0}' AND CUSTOMER_PO = '{1}' ORDER BY JOB,SUFFIX;",V.Global.sCustomer,V.Global.sCustPO,V.Local.sSQL)
+
+F.ODBC.Connection!con.OpenRecordsetRO("rstWO",V.Local.sSQL)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("con","rstWO","V.uGlobal.uWO",False,100000)
+	Gui.FrmCRM.gsfgWO.LoadFromUDT("V.uGlobal.uWO","STATUS::0*!*JOB::1*!*SUFFIX::2*!*PART::3*!*LOCATION::4*!*DESCRIPTION::5*!*DATE_DUE::6*!*QTY_OPEN::7",1)
+F.ODBC.con!rstWO.Close
+
+Program.Sub.subLoadGSFGWO.End
+
+Program.Sub.subLoadGSFGSOHist.Start
+'Load GSFG Sales History
+
+V.Local.sSQL.Declare(String)
+
+V.uGlobal.uSOHist.Redim(-1,-1)
+
+F.Intrinsic.String.Build("SELECT VOHL.INVOICE,VOHL.ORDER_NO,IF(VOHL.ORDER_SUFFIX = '0000','',VOHL.ORDER_SUFFIX) AS ORDER_SUFFIX,LEFT(VOHL.ORDER_LINE,3) AS ORDER_LINE,VOHL.PART,VOHL.LOCATION,VOHL.DESCRIPTION,VOHL.DATE_SHIPPED,VOHL.QTY_SHIPPED,VOHH.TRACKING_NO,VOHH.CARRIER_CD FROM V_ORDER_HIST_LINE VOHL JOIN V_ORDER_HIST_HEAD VOHH ON VOHH.INVOICE = VOHL.INVOICE WHERE VOHH.CUSTOMER = '{0}' AND VOHH.CUSTOMER_PO = '{1}' ORDER BY INVOICE,ORDER_NO,ORDER_LINE;",V.Global.sCustomer,V.Global.sCustPO,V.Local.sSQL)
+
+F.ODBC.Connection!con.OpenRecordsetRO("rstSOHist",V.Local.sSQL)
+	F.Intrinsic.Variable.LoadUDTFromRecordset("con","rstSOHist","V.uGlobal.uSOHist",False,100000)
+	Gui.FrmCRM.gsfgSOHist.LoadFromUDT("V.uGlobal.uSOHist","INVOICE::0*!*ORDER_NO::1*!*ORDER_SUFFIX::2*!*ORDER_LINE::3*!*PART::4*!*LOCATION::5*!*DESCRIPTION::6*!*DATE_SHIPPED::7*!*QTY_SHIPPED::8*!*TRACKING_NO::9*!*CARRIER_CD::10",1)
+F.ODBC.con!rstSOHist.Close
+
+Program.Sub.subLoadGSFGSOHist.End
+
+program.sub.gsfgwo_mouseup.start
+'Open View Work Orders when the Work Order or Suffix is selected
+
+V.Local.sParams.Declare(String)
+V.Local.sJob.Declare(String)
+V.Local.sSuffix.Declare(String)
+V.Local.iRow.Declare(Long)
+V.Local.iCol.Declare(Long)
+
+'V.Local.iRow.Set(V.Screen.FrmCRM!gsfgWO.Row)
+'V.Local.iCol.Set(V.Screen.FrmCRM!gsfgWO.Col)
+V.Local.iRow.Set(V.Args.MouseRow)
+V.Local.iCol.Set(V.Args.MouseCol)
+
+F.Intrinsic.Control.If(V.Local.iRow,>,0)
+F.Intrinsic.Control.AndIf(V.Local.iCol,=,1,"OR",V.Local.iCol,=,2)
+	Gui.FrmCRM.gsfgWO.GetTextMatrix(1,V.Local.iRow,V.Local.sJob)
+	Gui.FrmCRM.gsfgWO.GetTextMatrix(2,V.Local.iRow,V.Local.sSuffix)
+	F.Intrinsic.Control.If(V.Local.sJob,<>,"")
+		F.Intrinsic.String.Build("7!*!{0}!*!{1}!*!A",V.Local.sJob,V.Local.sSuffix,V.Local.sParams)
+		F.Global.General.CallWrapperSync(450000,V.Local.sParams)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+program.sub.gsfgwo_mouseup.end
+
+program.sub.gsfgsohist_mouseup.start
+'Open Reprint Invoices
+
+program.sub.gsfgsohist_mouseup.end
+
+program.sub.gsfgship_mouseup.start
+'Open View Shipments
+
+program.sub.gsfgship_mouseup.end
+
+program.sub.gsfgso_mouseup.start
+'Open View Order Lines when Order or Line is selected
+
+V.Local.sParams.Declare(String)
+V.Local.sOrder.Declare(String)
+V.Local.sLine.Declare(String)
+V.Local.iRow.Declare(Long)
+V.Local.iCol.Declare(Long)
+
+'V.Local.iRow.Set(V.Screen.FrmCRM!gsfgSO.Row)
+'V.Local.iCol.Set(V.Screen.FrmCRM!gsfgSO.Col)
+V.Local.iRow.Set(V.Args.MouseRow)
+V.Local.iCol.Set(V.Args.MouseCol)
+
+F.Intrinsic.Control.If(V.Local.iRow,>,0)
+'F.Intrinsic.Control.AndIf(V.Local.iCol,=,0,"OR",V.Local.iCol,=,1)
+F.Intrinsic.Control.AndIf(V.Local.iCol,=,0)
+	Gui.FrmCRM.gsfgSO.GetTextMatrix(0,V.Local.iRow,V.Local.sOrder)
+	Gui.FrmCRM.gsfgSO.GetTextMatrix(1,V.Local.iRow,V.Local.sLine)
+	F.Intrinsic.Control.If(V.Local.sOrder,<>,"")
+'		F.Intrinsic.String.Build("{0}!*!{1}",V.Local.sOrder,V.Local.sLine,V.Local.sParams)
+'		F.Global.General.CallWrapperSync(200051,V.Local.sParams)
+		F.Intrinsic.String.Build("{0}!*!V!*!{1}",V.Local.sOrder,V.Global.sCustomer,V.Local.sParams)
+		F.Global.General.CallWrapperSync(200000,V.Local.sParams)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+program.sub.gsfgso_mouseup.end
+
+
